@@ -146,6 +146,10 @@ summary:hover{
   padding-left: 10px;
 }
 
+.distill-site-header .logo img{
+  max-height: 30px;
+}
+
 /** Transition **/
 .distill-site-nav,
 .distill-site-nav:hover,

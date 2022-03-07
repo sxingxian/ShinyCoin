@@ -1,10 +1,14 @@
 
-output_dir: "_site"
+#output_dir: "_site"
 navbar:
   title: "ShinyCoin"
-  left:
+  logo:
+    image: "../../img/ShinyCoinLogo.png"
+  right:
     - icon: fa-home
       href: "#"
+    - icon: fa-github
+      href: "https://github.com/sxingxian/ShinyCoin"
       
 
 output: 
