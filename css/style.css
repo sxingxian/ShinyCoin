@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway|Inter:400,400i,700,700i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800|Raleway|Inter:400,400i,700,700i&display=swap');
 
 :root {
   --main-font-size: 16px;
@@ -13,7 +13,7 @@
   
   /** Custom COlor **/
   --color1: #000;
-  --color2: #bad1ce;
+  --color2: #FFD700; /** main color **/
   --color3: lightgrey; 
   --color4: orange;
   --color5: #f5f8fa;
@@ -22,25 +22,22 @@
   /** Alpha Color **/
   --TColor1: rgba(0,0,0,0.1);
   --TColor1-2: rgba(0,0,0,0.3);
-  --TColor1-3: rgba(0,0,0,0.3);
-  --TColor2: rgba(186,209,206,0.8);
-  
+  --TColor1-3: rgba(0,0,0,0.5);
+  --TColor2: rgba(255,215,0,0.8);
+  --TColor3: rgba(255,255,255,0.88);
 }
-
-
-
 
 html, body{
   font-size: var(--main-font-size);
   font-family: var(--body-font-fam);
 }
 
-/**body{
-  background: url('../img/background.jpg');
+body{
+  background: url('../img/ShinyBackground.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-}**/
+}
 
 h1, h2, h3, h4, h5{
   font-family: var(--header-font-fam);
@@ -58,6 +55,19 @@ d-article h2, h2{
 
 d-article h3, h3{
   font-size:1.15em;
+}
+
+.title{
+  display: none;
+}
+
+d-article{
+  background-color: var(--TColor3);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  -o-backdrop-filter: blur(5px);
+  -ms-backdrop-filter: blur(5px);
+  -mz-backdrop-filter: blur(5px);
 }
 
 .distill-site-nav {
@@ -93,7 +103,8 @@ d-article h3, h3{
 }
 
 .toc:hover,
-.l-body img:hover{
+.l-body img:hover,
+d-article>p>img:hover{
   box-shadow: 0px 0px 35px var(--TColor1);
   border-radius: 10px;
   padding: 50px;
@@ -103,7 +114,8 @@ d-article h3, h3{
   background: linear-gradient(163deg, var(--color2), var(--color6));
 }
 
-.l-body img:hover{
+.l-body img:hover,
+d-article>p>img:hover{
   background-color: var(--color6);
 }
 
@@ -111,7 +123,8 @@ d-article h3, h3{
   z-index:100;
 }
 
-.l-body img:hover{
+.l-body img:hover,
+d-article>p>img:hover{
   cursor: zoom-in;
 }
 
@@ -164,11 +177,14 @@ a:hover i.fa,
 d-article table tr:hover img,
 d-article table tr img,
 summary,
-summary:hover{
+summary:hover,
+d-article>p>img,
+d-article>p>img:hover{
   transition: all 0.25s ease;
 }
 
 .toc:hover, 
-.l-body img:hover{
+.l-body img:hover,
+d-article>p>img:hover{
   transform: scale(1.2);
 }

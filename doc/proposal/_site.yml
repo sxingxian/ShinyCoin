@@ -1,14 +1,21 @@
 
-#output_dir: "_site"
+output_dir: "."
 navbar:
-  title: "ShinyCoin"
+  title: "ShinyCoin ≫ Proposal"
   logo:
     image: "../../img/ShinyCoinLogo.png"
+    href: "../../index.html"
   right:
     - icon: fa-home
+      href: "../../index.html"
+    - icon: fa-file-signature
+      href: "../../doc/proposal/"
+    - icon: fa-card-clip
       href: "#"
-    - icon: fa-github
-      href: "https://github.com/sxingxian/ShinyCoin"
+    - icon: fa-users
+      href: "#"
+    - icon: fa-at
+      href: "../../doc/team/"
       
 
 output: 
