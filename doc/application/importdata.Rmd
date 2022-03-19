@@ -1,0 +1,50 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r}
+packages = c('tidyverse','rmarkdown', 'rvest', 'tidyquant', 'readxl', 'knitr')
+  for (p in packages){
+    if(!require(p, character.only =T)){
+      install.packages(p)
+    }
+  }
+```
+
+```{r}
+top30 <- read_xlsx("../../data/top30coins.xlsx")
+
+symbols <- top30 %>%
+          select(`Symbol`)
+
+
+glimpse(symbols)
+```
+```{r}
+symbol = 'symbols$Symbol'
+url = paste0('https://finance.yahoo.com/quote/', symbol,'/financials?p=', symbol)
+html_data = read_html(url) %>% html_node('body') %>% html_text()
+
+```
+
+```{r}
+top30symbol <- as.vector(symbols$Symbol)
+from_date = "2020-01-01"
+to_date = "2022-02-28"
+period_type = "days"  # daily prices chosen
+
+data_daily = tq_get(top30symbol,
+               get = "stock.prices",
+               from = from_date,
+               to = to_date) %>% 
+      group_by(symbol) %>%   
+# to group the data by symbol, otherwise the daily prices of all the stocks will be       aggregated 
+     
+   tq_transmute(select= NULL, 
+                  mutate_fun = to.period, 
+                  period  = period_type)
+
+kable(head(data_daily))
+
+```
