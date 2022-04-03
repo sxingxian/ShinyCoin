@@ -1,7 +1,7 @@
 
 output_dir: "."
 navbar:
-  title: "ShinyCoin ≫ Proposal"
+  title: "ShinyCoin ≫ Overview"
   logo:
     image: "../../img/ShinyCoinLogo.png"
     href: "../../index.html"
