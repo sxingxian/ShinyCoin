@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway|Inter:400,400i,700,700i&display=swap');
+
+:root {
+  --header-font-fam: "Raleway";
+  --body-font-fam: "Inter";
+}
+
+html, body{
+  font-size: var(--main-font-size);
+  font-family: var(--body-font-fam);
+}

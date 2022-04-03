@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<title>ShinyCoin</title>
+
+<script src="index_files/header-attrs-2.11/header-attrs.js"></script>
+
+
+
+
+
+
+<!--
+Font-awesome icons ie github or twitter
+-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css" integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
+
+<!--
+Google fonts api stuff
+-->
+<link href='https://fonts.googleapis.com/css?family=Special Elite' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+
+<!--
+Here are the required style attributes for css to make this poster work :)
+-->
+<style>
+@page {
+size: 23.39in 33.11in;
+margin: 0;
+padding: 0;
+}
+body {
+margin: 0px;
+padding: 0px;
+width: 23.39in;
+height: 33.11in;
+text-align: justify;
+font-size: 24px;
+line-height: 1.05;
+}
+/* RMarkdown Class Styles */
+/* center align leaflet map,
+from https://stackoverflow.com/questions/52112119/center-leaflet-in-a-rmarkdown-document */
+.html-widget {
+margin: auto;
+position: sticky;
+margin-top: 2cm;
+margin-bottom: 2cm;
+}
+.leaflet.html-widget.html-widget-static-bound.leaflet-container.leaflet-touch.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag.leaflet-touch-zoom {
+position: sticky;
+width: 100%;
+}
+pre.sourceCode.r {
+background-color: #dddddd40;
+border-radius: 4mm;
+padding: 4mm;
+width: 75%;
+margin: auto;
+margin-top: 1em;
+margin-bottom: 1em;
+/* align-items: center; */
+}
+code.sourceCode.r{
+background-color: transparent;
+font-size: 20pt;
+border-radius: 2mm;
+}
+code {
+font-size: 25pt;
+font-family: monospace;
+background-color: #FFD70024;
+color: #101056;
+padding: 1.2mm;
+line-height: 1;
+border-radius: 2mm;
+}
+caption {
+margin-bottom: 10px;
+font-size: 18px;
+font-style: italic;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #FFD70020;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
+  border-spacing: 0;
+  font-size: 40%;
+  border-style: none;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 1em;
+  padding-left: 1em;
+  line-height: 1em;
+}
+table {
+  margin: auto;
+}
+th {
+  padding-left: 5mm;
+  padding-right: 5mm;
+}
+.caption {
+font-size: 18px;
+font-style: italic;
+padding-top: 0;
+}
+.references {
+font-size: 20px;
+line-height: 90%;
+}
+/* Create three unequal columns that floats next to each other */
+.column {
+float: left;
+padding: 0px;
+}
+.outer {
+width: 23.39in;
+height: calc(33.11in *  (1 - 0.09 - 0.05 - 0.01) );
+-webkit-column-count: 3; /* Chrome, Safari, Opera */
+-moz-column-count: 3; /* Firefox */
+column-count: 3;
+-webkit-column-fill: auto;
+-moz-column-fill: auto;
+column-fill: auto;
+column-gap: 0;
+padding-left: 0cm;
+padding-right: 0cm;
+/* -webkit-column-rule-width: 50%;
+-moz-column-rule-width: 50%;
+column-rule-width: 50%; */
+-webkit-column-rule-style: none;
+-moz-column-rule-style: none;
+column-rule-style: none;
+-webkit-column-rule-color: black;
+-moz-column-rule-color: black;
+column-rule-color: black;
+background-color: #ffffff;
+font-family: Raleway;
+margin-top: calc(33.11in *  0.09 );
+padding-top: 1em;
+padding-bottom: 1em;
+}
+span.citation {
+  color: #FFD700;
+  font-weight: bold;
+}
+a {
+text-decoration: none;
+color: #FFD700;
+}
+#title {
+font-size: 38px;
+text-align: left;
+margin: 0;
+line-height: 98%;
+border-bottom: 0;
+font-weight: normal;
+background: 0;
+}
+#author {
+color: #101056;
+margin: 0;
+line-height: 85%;
+font-size: 160px;
+}
+#affiliation {
+padding-top: 0.1em;
+color: ;
+font-style: italic;
+font-size: 15pt;
+margin: 0;
+}
+sup {
+color: #FFD700;
+}
+.affiliation sup {
+font-size: 20px;
+}
+.author {
+text-align: left;
+}
+.author sup {
+font-size: 30px;
+}
+.author_extra {
+color: #FFD700;
+margin: 0;
+line-height: 85%;
+font-size: 15pt;
+text-align: left;
+}
+.outer h1, h2, h3, h4, h5, h6 {
+text-align: center;
+margin: 0;
+font-weight: bold;
+}
+.section h1 {
+  text-align:center;
+  padding-bottom:5px;
+  background:
+    linear-gradient(
+      to left,
+      #ffffff 1%,
+      #ffffff 20%,
+      #10105675 33%,
+      #101056 50%,
+      #10105675 66%,
+      #ffffff 80%,
+      #ffffff 99%
+    )
+    left
+    bottom
+    #ffffff
+    no-repeat;
+  background-size:100% 5px ;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.outer h2 {
+text-align: center;
+}
+.outer p, .level2 {
+color: #101056;
+}
+.outer ol {
+padding-left: 8%;
+padding-right: 8%;
+text-align: left;
+}
+.main {
+width: 23.39in;
+height: calc(33.11in * 0.09);
+position: absolute;
+background-color: #101056;
+color: #ffffff90;
+font-family: Special Elite;
+background-image: linear-gradient(#101056 50%,#FFD700);
+}
+.main strong {
+color: #ffffff;
+}
+.main strong > sup {
+color: #ffffff;
+}
+.main sup {
+color: #ffffff90;
+}
+#main-img-left {
+width: 10%;
+left: 0.5in;
+bottom: 0.2in;
+position: absolute;
+}
+#main-img-center {
+width: 10%;
+left: calc(23.39in * 0.45);
+bottom: 0.5in;
+position: absolute;
+}
+#main-img-right {
+width: 10%;
+right: 0.5in;
+bottom: 0.2in;
+position: absolute;
+}
+.main p {
+font-size: 100px;
+font-family: Special Elite;
+text-align: center;
+margin: 0;
+position: absolute;
+top: 50%;
+-ms-transform: translateY(-50%);
+transform: translateY(-50%);
+margin-left: 1em;
+}
+.fab {
+color: #00000030;
+font-size: 25px;
+}
+.twitter, i {
+color: #00000030;
+font-size: 35px;
+text-decoration: none;
+}
+a.email {
+text-decoration: none;
+color: #00000030;
+font-size: 35px;
+}
+.envelope {
+color: #00000030;
+font-size: 5px;
+text-decoration: none;
+}
+.poster_wrap {
+width: 23.39in;
+height: 33.11in;
+padding: 0cm;
+}
+.main_bottom {
+width: 23.39in;
+height: calc(33.11in * 0.05);
+margin-top: calc(33.11in * (1 - 0.05));
+position: absolute;
+background-color: #101056;
+background-image: linear-gradient(#FFD700 10%, #101056);
+}
+.section {
+  padding-left: 10mm;
+  padding-right: 10mm;
+}
+span > #tab:mytable {
+  font-weight: bold;
+}
+.orcid img {
+  width: 3%;
+}
+.emphasis {
+  background-color: #008080;
+  color: #ffffff;
+  border: solid #0b2045 3mm;
+  margin: 1em;
+  padding-left: 0;
+  padding-right: 0;
+}
+.emphasis h1 {
+  font-weight: bold;
+  background: none;
+  background-color: #0b2045;
+  padding-bottom: 5mm;
+  padding-top: 1mm;
+  margin-top: -1mm;
+  margin-right: -1mm;
+  margin-left: -1mm;
+}
+.emphasis blockquote {
+  border: 0;
+}
+.emphasis ol {
+  padding: 0;
+  padding-left: 8%;
+  font-size: 100%;
+  font-weight: bold;
+}
+.emphasis p {
+  color: #ffffff;
+}
+</style>
+</head>
+<body>
+
+
+<div class="poster_wrap">
+
+<div class="column outer">
+<div class="section">
+<h1 id="title"><strong>ShinyCoin</strong></h1><br>
+<h3 id="author" class="author">
+
+   </h3>
+
+<h5 id="author_extra", class="author_extra">
+Ang Bi Lian |<sup></sup>
+ Seah Xing Xian |<sup></sup>
+ Zhou Yiou |<sup></sup>
+ Prof Kam Tin Seong<sup>1</sup>
+</h5>
+
+
+<p id="affiliation" class="affiliation">
+<sup></sup> Masters in IT in Business<br> <sup>1</sup> Associate Professor of Information Systems, SMU
+</p>
+</div>
+
+<div id="motivation" class="section level1">
+<h1>Motivation</h1>
+<p>Cryptocurrency, or <strong><code>crypto</code></strong>, is a digital or virtual currency that is secured by cryptography. Trading cryptocurrencies is not as simple as trading in the traditional stock market. Many will face the volatility, and one incorrect move, the trader will lose a fortune. The crypto world is not for the faint of heart.</p>
+<p>With the rapid increase in interest in cryptocurrencies, we are motivated to dive deep into the crypto world to look at the performance of the currencies through a period of time.</p>
+<p>The aim is to create an R Shiny application to encourage anyone, who is interested to invest in cryptocurrencies, to get more insights before making a decision to buy into a cryptocurrency.</p>
+</div>
+<div id="methodology" class="section level1">
+<h1>Methodology</h1>
+<p>To develop the dashboard, we carried out the following steps:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Data wrangling and transformation</strong>: The scripted dataset are tidied into formats that can be read by the R packages used e.g. using daily prices, converting the data into tibble format that is ideal for time series analysis.</li>
+<li><strong>Exploratory and Seasonal analysis</strong>: Using suitable graphical and time series decomposition methods to reveal the seasonal patterns</li>
+<li><strong>Predictive analysis</strong>: Modelling the time series using various forecasting algorithms and predict future prices.</li>
+<li><strong>Interactive dashboard</strong>: Develop and publish an interactive dashboard containing the above components</li>
+</ol>
+<div class="figure">
+<img src="img/rpackages.png" style="width:80.0%" alt="" />
+<p class="caption">R Packages Used</p>
+</div>
+</div>
+<div id="exploratory" class="section level1">
+<h1>Exploratory</h1>
+<p>Exploratory data analysis consists of three categories: Horizon Graph using package, Anomaly Diagnostics and a simple time series plot.</p>
+<div class="figure">
+<img src="img/topcrypto.png" style="width:90.0%" alt="" />
+<p class="caption">Top 30 Cryptocurrencies</p>
+</div>
+<p>Horizon Graph depicts the historical prices of many crypto currencies in one visualisation, as a quick way to identify similar patterns across the currencies. Blue represents the negative value, red for positive. The darker the color, the greater the fluctuation. ggHoriPlot is used for building horizon plots in ggplot2.</p>
+<div class="figure">
+<img src="img/timeseries%20plot.png" style="width:90.0%" alt="" />
+<p class="caption">Time-series Plot</p>
+</div>
+<p>Simple Time series: use a line plot to demonstrate the evolution of the time series over time. In this app, a time series plot is designed to allow users to compare the time series pattern of selected crypto currencies and identify the coins for further analysis.</p>
+<div class="figure">
+<img src="img/anomaly%20diagnostics.png" style="width:90.0%" alt="" />
+<p class="caption">Anomaly Diagnostics</p>
+</div>
+<p><strong><code>Anomaly Diagnostics</code></strong> is to detect and visualise anomalies which can signify special events, and to identify anomalies for cleaning to improve forecast error. The UI panel is designed for the users to obtain analysis upon selection of desired date range.</p>
+</div>
+<div id="seasonality-correlation" class="section level1">
+<h1>Seasonality &amp; Correlation</h1>
+<p>Time series generally consist of three components: a trend-cycle component, a seasonal component, and a remainder component (containing anything else in the time series).</p>
+<p>The STL diagnostics and seasonality diagnostics of the <strong><code>timetk</code></strong> package are used to decompose the time series, and extract these components out to facilitate identification of patterns.</p>
+<div class="figure">
+<img src="img/seasonal%20diagnostics.png" style="width:90.0%" alt="" />
+<p class="caption">Seasonal Diagnostics</p>
+</div>
+<p><strong><code>seasonality diagnostics:</code></strong> to visualize time series seasonality by different time periods (days, week, weekday, quarter, year)</p>
+<div class="figure">
+<img src="img/timeseries%20decomposition.png" style="width:90.0%" alt="" />
+<p class="caption">Time Series Decomposition</p>
+</div>
+<p><strong><code>stl diagnostics:</code></strong> using the STL methodology to separate the “season” and “trend” components from the “observed” values leaving the “remainder.”</p>
+<div class="figure">
+<img src="img/autocorrelation.png" style="width:90.0%" alt="" />
+<p class="caption">Auto Correalation</p>
+</div>
+<p><strong><code>Autocorrelation</code></strong> measures the linear relationship between lagged values of a time series. In this app, we used ACF, auto-correlation between a target variable and lagged versions of itself, and the PACF, partial autocorrelation that removes the dependencies of lags on other lags. These are useful to visualize the strength of the seasonal patterns of the data (when data are seasonal, the auto-correlations will be larger for the seasonal lags).</p>
+</div>
+<div id="prediction" class="section level1">
+<h1>Prediction</h1>
+<p>The predictive feature in the application to train some of the machine learning models with respective visualization and a performance matrix of the trained models and prediction comparison for the selected cryptocurrency.</p>
+<div class="figure">
+<img src="img/forecast%20plot.jpeg" style="width:90.0%" alt="" />
+<p class="caption">Forecast Plot</p>
+</div>
+<p>The selected models that we used for predictions are ARIMA, Prophet, ElasticNet, Random Forest, XGBoost, SVM, ARIMA Boosted, Prophet Boosted.</p>
+<div class="figure">
+<img src="img/performance%20comparison.jpeg" style="width:90.0%" alt="" />
+<p class="caption">Performance Matrix</p>
+</div>
+</div>
+<div id="future-works" class="section level1">
+<h1>Future Works</h1>
+<p>The use of timetk and modeltime generally offer a straightforward and efficient way to generate common time series visualization. By tweaking the codes, future adaptations could be easily carried out to compare the major cryptocurrencies against other investment assets like gold, or major stock market ETFs like S&amp;P 500. This will allow potential investors to better understand the risks and potential returns they could derive from different investments.</p>
+<p>It is also notable that the study did not fully explore the functionalities of the R packages. For instance, Timetk has a function to compute the cross correlation (CCF).</p>
+<p>It is not as straightforward as it requires the data to be in a single tibble, hence some data wrangling will need to be done if users want to compare with predictors where the information comes from another source.</p>
+<p>Other R packages for time series analysis, such as feasts could be explored for an extension of the project.</p>
+<p>We can look into other prediction models, such as Long Short Term Memory (LSTM), to have additional prediction and have more comparisons amongst the available prediction models. We can also look at data transformation to improve the prediction.</p>
+</div>
+
+</div>
+<div class="main">
+<p>A look into the near future of cryptocurrencies</p>
+</div>
+<div class="main_bottom">
+<img id="main-img-left" src=img/SMU-Logo.png>
+<img id="main-img-center" src=>
+<img id="main-img-right" src=>
+</div>
+</div>
+
+
+
+</body>
+</html>

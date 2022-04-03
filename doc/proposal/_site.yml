@@ -11,9 +11,9 @@ navbar:
     - icon: fa-file-signature
       href: "../../doc/proposal/"
     - icon: fa-card-clip
-      href: "#"
+      href: "../../doc/userguide/index.pdf"
     - icon: fa-users
-      href: "#"
+      href: "https://coinshiny.shinyapps.io/publish/"
     - icon: fa-at
       href: "../../doc/team/"
       
