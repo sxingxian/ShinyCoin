@@ -2264,18 +2264,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <a href="../../index.html">
 <i class="fa fa-home" aria-hidden="true"></i>
 </a>
-<a href="../../doc/proposal/">
-<i class="fa fa-file-signature" aria-hidden="true"></i>
-</a>
-<a href="#">
-<i class="fa fa-card-clip" aria-hidden="true"></i>
-</a>
-<a href="#">
-<i class="fa fa-users" aria-hidden="true"></i>
-</a>
-<a href="../../doc/team/">
-<i class="fa fa-at" aria-hidden="true"></i>
-</a>
+<a href="../../doc/proposal/">Proposal</a>
+<a href="../../doc/userguide/index.pdf">User Guide</a>
+<a href="https://coinshiny.shinyapps.io/publish/">Application</a>
+<a href="../../doc/team/">Team</a>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
 </nav>
@@ -2300,7 +2292,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#motivation-and-objectives">Motivation and Objectives</a></li>
 <li><a href="#data-description">Data Description</a></li>
-<li><a href="#methodology-and-approach">Methodology and Approach</a></li>
+<li><a href="#methodology">Methodology</a>
+<ul>
+<li><a href="#storyboard">Storyboard</a>
+<ul>
+<li><a href="#exploratory">Exploratory</a></li>
+<li><a href="#seasonal-and-correlation">Seasonal and Correlation</a></li>
+<li><a href="#prediction">Prediction</a></li>
+</ul></li>
+</ul></li>
 <li><a href="#r-packages">R packages</a></li>
 <li><a href="#project-milestones">Project Milestones</a></li>
 <li><a href="#references">References</a></li>
@@ -2308,26 +2308,36 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </nav>
 </div>
 <h1 id="introduction">Introduction</h1>
-<p>Cryptocurrency is a digital currency that is secured by cryptography that will deter the possibility of counterfeiting the currency. There are several types of cryptocurrency and most of them are decentralized networks based on blockchain technology. The most prominent feature about a digital currency is that these currencies are generally not issued by any central authority.</p>
-<p>According to Yahoo Finance, until 6th March 2022, the crypto market cap of the top 30 croptos by market cap is $1.612T. The market volume of top 30 crypto within 24 hours was $84.39B, making a 35.64% decrease compared to the day before. The cryptocurrency market is highly volatile, and is deemed so risky that the Monetary Authority of Singapore has issued guidelines to curb cryptocurrency trading being promoted to the public. Nonetheless, there is still high interest, and it will be useful to allow users to discover how the market has changed, and for them to make a more informed decision on their investment.</p>
+<p>Cryptocurrency is a digital currency that is secured by cryptography that will deter the possibility of counterfeiting the currency. There are several types of cryptocurrencies and most of them are decentralized networks based on blockchain technology. The most prominent feature about a digital currency is that these currencies are generally not issued by any central authority.</p>
+<p>According to Yahoo Finance, as of 6th March 2022, the market cap of the top 30 cryptocurrencies is $1.612T. The market volume of top 30 crypto within 24 hours was $84.39B, making a 35.64% decrease compared to the day before. The cryptocurrency market is highly volatile, and is deemed so risky that the Monetary Authority of Singapore has issued guidelines to curb cryptocurrency trading being promoted to the public. Nonetheless, trading is still legal and there is ever-growing interest among investors. Hence, there is a need for users to discover and visualise the volatility of the market, identify seasonality and predict future trends so that they can make a more informed decision on their investment.</p>
 <h1 id="motivation-and-objectives">Motivation and Objectives</h1>
-<p>The main motivation of this project is the lack of interactive web-enabled visualisations to compare and allow users to easily identify generalised patterns of multiple crypto currencies at one-go. The analyses that are available to the public are usually those comparing the few common crypto currencies, in fact many focussed on bitcoin only since it’s the most well known one. However, there are currently over 9,000 crypto currencies in the market.</p>
-<p>It would be interesting to see if the trends and patterns are similar for other crypto currencies, beyond bitcoin. It will also be useful for prospective investors to predict the price movements of crypto currencies based on traditional and recently-developed algorithms.</p>
-<p>The project aims to provide a user-friendly web-enabled application for users to visualise trends and patterns in an interesting and interactive manner. The specific objectives are:</p>
+<p>The main motivation of this project is the lack of interactive web-enabled visualisations to compare and allow users to easily identify generalised patterns of multiple crypto currencies in a single dashboard. The analyses that are available to the public are usually those comparing the few common crypto currencies, in fact many focussed on bitcoin only since it’s the most well known one. However, there are currently over 9,000 crypto currencies in the market.</p>
+<p>The project aims to provide a web-enabled application for users to visualise real-time trends and perform analysis of cryptocurrencies in an interactive and user-friendly manner. The specific objectives are:</p>
 <ul>
-<li>To effectively visualise the price movement patterns at different levels, based on the selected time periods and crypto currencies of interest</li>
-<li>To determine the relationship between different crypto currencies, and how major stock market trends could influence the prices.</li>
-<li>To provide an easy way for investors to determine their portfolio returns based on selected crypto currencies, based on historical patterns and forecasted trends.</li>
+<li>To effectively visualise the general price movement patterns of the major cryptocurrencies (by market cap) and diagnose anomalies based on the selected time periods.</li>
+<li>To enable users to conduct detailed analysis on the seasonal patterns, cycles and remainder component, as well as autocorrelation (ACF and ACF).</li>
+<li>To predict selected cryptocurrencies using classical forecast algorithms like Arima, andrecently developed machine learning algorithm like Prophet.</li>
 </ul>
+<p>Users will be able to use a single application/dashboard to visualise the overall market trends, identify seasonal patterns and determine if the patterns are similar for other cryptocurrencies, beyond bitcoin. Prospective investors can also use the application to predict the price movements of cryptocurrencies based on classic time series forecasting algorithms, and recently-developed machine learning algorithms.</p>
 <h1 id="data-description">Data Description</h1>
-<p>The main dataset will be scripted from <a href="https://finance.yahoo.com/quote/">Yahoo Finance</a> which will contain two years worth of data, from 1st January 2020 till end Feb 2022, with top 30 cryptocurrencies based on market cap.</p>
-<h1 id="methodology-and-approach">Methodology and Approach</h1>
-<p>The proposed visualisations that will be used for this project include the following:</p>
-<p><strong>Exploratory Analysis (data discovery)</strong></p>
-<ul>
-<li>Simple bar charts in hierarchical order: This is to visualise the top traded cryptocurrencies (based on a given time), by trading volume and the market capitalisation (by comparing across the various currencies in terms of percentage total).</li>
-</ul>
-<p><img src="../../img/proposal/Picture1.png" /></p>
+<p>The main dataset will contain the top 30 cryptocurrencies as of 16 March 2022, based on <a href="https://finance.yahoo.com/u/yahoo-finance/watchlists/crypto-top-market-cap/">Yahoo Finance’s Top Cryptos by Market cap</a>). Real time dataset will be scripted from <a href="https://finance.yahoo.com/quote/">Yahoo Finance</a> with a minimum of two years of historical data.</p>
+<h1 id="methodology">Methodology</h1>
+<p>To develop the dashboard, we plan to carry out the following steps:</p>
+<ol type="1">
+<li><p><strong>Data wrangling and transformation</strong>: The scripted dataset need to be tidied into format that can be read by the R packages used e.g. using daily prices, converting the data into tibble format that is ideal for time series analysis.</p></li>
+<li><p><strong>Exploratory and Seasonal analysis</strong>: Using suitable graphical and time series decomposition methods to reveal the seasonal patterns</p></li>
+<li><p><strong>Predictive analysis</strong>: Modelling the time series using various forecasting algorithms and predict future prices.</p></li>
+<li><p><strong>Interactive dashboard</strong>: Develop and publish an interactive dashboard containing the above components.</p></li>
+</ol>
+<h2 id="storyboard">Storyboard</h2>
+<p>The dashboard will be split into 3 sections, where users will be recommended to go through the sections sequentially.</p>
+<h3 id="exploratory">Exploratory</h3>
+<p>The first section, “Exploratory” will provide an overview on the price fluctuations of the major cryptocurrencies using horizon graph. Next users can zoom into the selected cryptocurrencies with more positive trends, using simple time series charts to have a closer look on the trends of the selected crytocurrencies and visualise anomalies. Users can use the findings from this stage to identify suitable cryptocurrencies (e.g those with seasonal patterns, or those with ) for further analysis in the next section.</p>
+<h3 id="seasonal-and-correlation">Seasonal and Correlation</h3>
+<p>With the observations gleaned from the first section and having identified the cryptocurrencies of interest, users will use the “Seasonal and Correlation” section next. In this section, users can can achieve deeper understanding and identify seasonality patterns of different time intervals with time series decomposition method (STL), and understand whether the time series has any trend or white noises using auto-correlation (ACF and PACF) charts.</p>
+<h3 id="prediction">Prediction</h3>
+<p>In the third and last section, users will be able to predict future prices of selected cryptocurrencies using classic time series forecasting methods like Arima and newer machine learning algorithms like prophet, and compare the performance of these methods.</p>
+<p>Some of the proposed visualsiation methods described in the earlier paragraphs are shown below.</p>
 <ul>
 <li>Horizon graph: This is to show the historical prices of many crypto currencies in one visualisation, as a quick way to identify similar patterns across the currencies.</li>
 </ul>
@@ -2337,21 +2347,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </ul>
 <p><img src="../../img/proposal/Picture3.png" /></p>
 <ul>
-<li>Candlestick: This is to show a good summary of the crypto currencies’ behaviour, in terms of its high, low, open and closing prices.</li>
-</ul>
-<p><img src="../../img/proposal/Picture4.png" /></p>
-<p><strong>Statistical/Inferential Analysis</strong></p>
-<ul>
-<li>Correlation plots (e.g. correlogram,line charts to plot the correlation values over a time period): This is to determine if there is any relationship between the selected crypto currencies, as well as the major stock market ETFs e.g. S&amp;P 500. It is useful to find out the correlation to determine the amount of diversification of assets in a portfolio, and see how crypto currencies could be affected by factors such as overall stock market trend.</li>
-</ul>
-<p><img src="../../img/proposal/Picture5.png" /></p>
-<ul>
-<li>Portfolio analysis: This is useful for investors to determine and compare the rate of return based on the crypto currencies that they are currently trading or consider investing in.</li>
-</ul>
-<p><img src="../../img/proposal/Picture6.png" /></p>
-<p><strong>Predictive analysis</strong></p>
-<ul>
-<li>Anomaly detection: This is to detect and visualise anomalies which can signify special events, and to identify anomalies for cleaning to improve forecast error.</li>
+<li>Anomaly diagnostics: This is to detect and visualise anomalies which can signify special events, and to identify anomalies for cleaning to improve forecast error.</li>
 </ul>
 <p><img src="../../img/proposal/Picture7.png" /></p>
 <ul>
@@ -2359,7 +2355,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </ul>
 <p><img src="../../img/proposal/Picture8.png" /></p>
 <h1 id="r-packages">R packages</h1>
-<p>The software used for this project is R, and the R packages that are going to be applied based on the above proposed visualisations are:</p>
+<p>The software used for this project is R, and the R packages that are going to be applied for the dashboard application are:</p>
 <div class="l-body">
 <table>
 <colgroup>
@@ -2378,40 +2374,40 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <td>To build interactive web application and visualisations</td>
 </tr>
 <tr class="even">
+<td>rsconnect</td>
+<td>To publish the dashboard on shinyapps.io</td>
+</tr>
+<tr class="odd">
 <td>Tidyverse</td>
 <td>To tidy up and manipulate the data</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Plotly</td>
 <td>To create interactive graphs</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>ggplot2</td>
 <td>To create static graphs</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>modeltime</td>
 <td>To build time series forecast models using various methods such as classical methods(ARIMA), new methods (Prophet) and machine learning (Tidymodels)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>ggHoriPlot</td>
 <td>To build horizon plots in ggplot2</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>tidyquant</td>
 <td>To script cryptocurrency data for time series analysis from Yahoo Finance and to re-format the dataset into dataframe or tidyverse format</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>timetk</td>
 <td>To create interactive visualization, tidy time series data wrangling and preprocess time series data</td>
 </tr>
-<tr class="odd">
-<td>Quantmod</td>
-<td>To plot candlestick charts</td>
-</tr>
 <tr class="even">
-<td>corrgram</td>
-<td>To plot correlogram</td>
+<td>shinythemes and bslib</td>
+<td>To beautify the dashboard with suitable themes</td>
 </tr>
 </tbody>
 </table>
@@ -2429,6 +2425,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="https://blogs.imf.org/2022/01/11/crypto-prices-move-more-in-sync-with-stocks-posing-new-risks/">Crypto Prices Move More In Sync With Stocks</a></li>
 <li><a href="https://www.straitstimes.com/business/companies-markets/crypto-trading-should-not-be-promoted-to-the-public-under-new-mas-guidelines">Crypto Trading, Straits Times</a></li>
 <li><a href="https://finance.yahoo.com/u/yahoo-finance/watchlists/crypto-top-market-cap/">Top Crpyto By Market Cap</a></li>
+<li><a href="https://otexts.com/fpp2/">Forecasting Principles and Practice</a></li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

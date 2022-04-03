@@ -8,13 +8,13 @@ navbar:
   right:
     - icon: fa-home
       href: "../../index.html"
-    - icon: fa-file-signature
+    - text: "Proposal"
       href: "../../doc/proposal/"
-    - icon: fa-card-clip
+    - text: "User Guide"
       href: "../../doc/userguide/index.pdf"
-    - icon: fa-users
+    - text: "Application"
       href: "https://coinshiny.shinyapps.io/publish/"
-    - icon: fa-at
+    - text: "Team"
       href: "../../doc/team/"
       
 
